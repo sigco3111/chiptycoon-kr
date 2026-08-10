@@ -1,13 +1,13 @@
 # 칩타이쿤
 
-**[▶ 투어 시작하기 (Vercel 라이브 데모)](https://chiptycoon-kr.vercel.app)** *(배포 후 추가)*
+**[▶ 투어 시작하기 (Vercel 라이브 데모)](https://chiptycoon-kr.vercel.app)**
 
 > 칩 공장을 테마파크처럼 펼쳐놓은 가이드가 있는 아이소메트릭 투어. 한 장의 실리콘 웨이퍼가 카트에 실려 도로를 따라 움직이다가, 보통 모래를 컴퓨터 칩으로 바꾸는 스무 개의 건물 각각에서 멈춥니다. 카트의 화물은 곧 웨이퍼 자체이며, 정류장마다 형태가 바뀌기 때문에 현재 어느 단계인지 항상 한눈에 보입니다. 마지막 두 정류장에서 칩은 상하차장에서 팔레트로 트럭에 실리고, 데이터센터로 배달되어 일을 시작합니다. 그리고 카트는 다시 게이트로 돌아가 다음 웨이퍼를 시작합니다.
 
 | 페이지 | URL |
 |---|---|
-| **라이브 데모** | `https://chiptycoon-kr.vercel.app` *(배포 후 자동 채워짐)* |
-| **GitHub 저장소** | `https://github.com/sigco3111/chiptycoon-kr` |
+| **라이브 데모** | <https://chiptycoon-kr.vercel.app> |
+| **GitHub 저장소** | <https://github.com/sigco3111/chiptycoon-kr> |
 
 순수 정적 사이트. 빌드 단계 없음, 의존성 없음, 네트워크 호출 없음. 외부 라이브러리 0개.
 
@@ -88,7 +88,7 @@ vercel --yes --prod --non-interactive --scope sigco3111s-projects --token "$VERC
 
 ## 상태 뱃지
 
-- ✅ Live (Vercel 배포 후)
-- 📄 한국어 UI 100%
+- ✅ Live: <https://chiptycoon-kr.vercel.app> (Vercel Production)
+- 📄 한국어 UI 100% (사용자 가시 영문 잔재 0개)
 - 🔓 MIT (한국어 저작물 한정)
-- 🤖 Claude-MiniMax-M3 + Hermes Agent로 번역 및 배포
+- 🤖 MiniMax-M3 + Hermes Agent로 번역 및 배포
