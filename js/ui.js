@@ -46,7 +46,7 @@
       var open = !g.classList.contains('open');
       g.classList.toggle('open', open);
       sheet.setAttribute('aria-expanded', String(open));
-      sheet.querySelector('.sheet-label').textContent = open ? 'Show less' : 'Read more';
+      sheet.querySelector('.sheet-label').textContent = open ? '접기' : '자세히 보기';
       if (open) g.scrollTop = 0;
     });
 
@@ -55,7 +55,7 @@
       var p = $('guide');
       var hide = !p.classList.contains('hidden');
       p.classList.toggle('hidden', hide);
-      pbtn.textContent = hide ? 'Show guide' : 'Hide guide';
+      pbtn.textContent = hide ? '가이드 보기' : '가이드 숨기기';
       pbtn.setAttribute('aria-expanded', String(!hide));
     });
 
@@ -90,7 +90,7 @@
     if (!g || !h || !h.offsetParent) return;
     g.classList.remove('open');
     h.setAttribute('aria-expanded', 'false');
-    h.querySelector('.sheet-label').textContent = 'Read more';
+    h.querySelector('.sheet-label').textContent = '자세히 보기';
   }
 
   function showStop(stop, isPin) {
@@ -100,20 +100,20 @@
     el.pinNote.hidden = !isPin;
   }
 
-  var ACT_NAME = { 1: 'Act 1 · Sand to wafer', 2: 'Act 2 · Drawing the plan',
-                   3: 'Act 3 · Printing the chip', 4: 'Act 4 · Chips out the gate',
-                   5: 'Act 5 · Delivered and put to work' };
+  var ACT_NAME = { 1: '1막 · 모래에서 웨이퍼로', 2: '2막 · 설계도를 그립니다',
+                   3: '3막 · 칩을 인쇄합니다', 4: '4막 · 칩이 게이트를 나갑니다',
+                   5: '5막 · 배달되어 일을 시작합니다' };
 
   function render(stop) {
     if (lastPainted === stop.id && !pinned) return;
     lastPainted = stop.id;
     var n = Park.stops.indexOf(stop) + 1;
-    el.chip.textContent = 'Stop ' + n + ' of ' + Park.stops.length;
+    el.chip.textContent = '정류장 ' + n + ' / ' + Park.stops.length;
     el.chip.className = 'chip act' + stop.act;
     el.name.textContent = stop.name;
     el.short.textContent = stop.short;
     el.body.textContent = stop.body;
-    el.tip.innerHTML = '<b>Tycoon tip:</b> ' + stop.tip;
+    el.tip.innerHTML = '<b>타이쿤 팁:</b> ' + stop.tip;
     el.hudNote.textContent = ACT_NAME[stop.act] || '';
 
     var chips = el.stopList.children;
@@ -149,16 +149,16 @@
     el.dwell.hidden = !(s.dwellTotal > 0 && s.dwellLeft > 0);
     el.dwellBar.style.width = (pct * 100).toFixed(1) + '%';
     el.dwellHint.textContent = s.reading
-      ? 'reading stop · press Space to hold it here'
-      : 'moving on';
+      ? '정류장에서 읽는 중 · 스페이스바를 누르면 계속 머무릅니다'
+      : '이동 중';
 
     el.hudStop.textContent = s.seenCount + ' / ' + Park.stops.length;
-    el.hudLayer.textContent = s.lap + ' of ' + s.laps + ' shown';
+    el.hudLayer.textContent = s.lap + ' / ' + s.laps + ' 진행 중';
     el.hudBatch.textContent = '#' + s.batch;
     el.progressBar.style.width = (Tour.progress() * 100).toFixed(1) + '%';
 
     if (s.tourDone && !s.reading) {
-      el.hudNote.textContent = 'Every stop explained · running at watching speed';
+      el.hudNote.textContent = '모든 정류장 설명 완료 · 가볍게 보는 속도로 재생 중';
     }
   }
 

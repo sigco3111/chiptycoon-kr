@@ -1,106 +1,94 @@
-# ChipTycoon
+# 칩타이쿤
 
-**[▶ Take the tour](https://laurentiugabriel.github.io/ChipTycoon/)**
+**[▶ 투어 시작하기 (Vercel 라이브 데모)](https://chiptycoon-kr.vercel.app)** *(배포 후 추가)*
 
-An isometric theme park that is really a chip factory. A cart carries one silicon
-wafer along the roads and stops at each of the twenty buildings that turn ordinary
-sand into a computer chip. The cargo on the cart is the wafer itself, and it changes
-at every stop: a heap of sand, then dark lumps of rough silicon, then white
-polysilicon, a silver crystal, a stack of raw wafers, a mirror-flat disc, a green
-coated disc, a patterned one, and finally a tray of finished chips.
+> 칩 공장을 테마파크처럼 펼쳐놓은 가이드가 있는 아이소메트릭 투어. 한 장의 실리콘 웨이퍼가 카트에 실려 도로를 따라 움직이다가, 보통 모래를 컴퓨터 칩으로 바꾸는 스무 개의 건물 각각에서 멈춥니다. 카트의 화물은 곧 웨이퍼 자체이며, 정류장마다 형태가 바뀌기 때문에 현재 어느 단계인지 항상 한눈에 보입니다. 마지막 두 정류장에서 칩은 상하차장에서 팔레트로 트럭에 실리고, 데이터센터로 배달되어 일을 시작합니다. 그리고 카트는 다시 게이트로 돌아가 다음 웨이퍼를 시작합니다.
 
-Two more stops follow the chips out of the gate. They are palletised onto a lorry at
-the loading dock and driven to the data centre on the east side of the park, where
-another hall of racks lights up with every delivery. Then the lorry drives back to
-the gate and the next wafer starts, so the tour runs as a loop.
+| 페이지 | URL |
+|---|---|
+| **라이브 데모** | `https://chiptycoon-kr.vercel.app` *(배포 후 자동 채워짐)* |
+| **GitHub 저장소** | `https://github.com/sigco3111/chiptycoon-kr` |
 
-Pure static site. No build step, no dependencies, no network calls.
+순수 정적 사이트. 빌드 단계 없음, 의존성 없음, 네트워크 호출 없음. 외부 라이브러리 0개.
 
-## Run it
+## 무엇이 다른가
 
-Open `index.html` in a browser. That is all.
+원본 [LaurentiuGabriel/ChipTycoon](https://github.com/LaurentiuGabriel/ChipTycoon)에서 파생된 한국어 독립 포크입니다.
 
-Or serve it:
+| 항목 | 원본 | 이 포크 |
+|---|---|---|
+| 사용자 가시 영문 UI 텍스트 | 약 150개 (빌딩 22개 + 패널 + HUD + 컨트롤) | **0개** — 전부 한국어로 교체 |
+| 헤더/타이틀/About 본문 | 영문 | 한국어 |
+| `<html lang>` | `"en"` | `"ko"` |
+| 빌드 도구 / 의존성 | 없음 | 없음 (원본 그대로) |
+| 동작·그래픽·애니메이션 | — | 원본 그대로 보존 |
 
-```
-python -m http.server 8000
+한국어 번역은 **하드코딩 교체 방식**입니다. 원본에 i18n 사전·토글 시스템이 없었기 때문에, 모든 영문 텍스트를 한국어로 직접 교체했습니다. 원본 구조·동작·게임 로직은 한 줄도 건드리지 않았습니다.
+
+## 빠른 시작
+
+정적 사이트라 브라우저에서 `index.html`을 열기만 하면 됩니다.
+
+```bash
+cd /Users/mac/work/chiptycoon-kr
+
+# 방법 1: 그냥 열기
+open index.html
+
+# 방법 2: 로컬 서버 (모바일·CORS 회피 시 권장)
+python3 -m http.server 8000
 # → http://localhost:8000
 ```
 
-## Controls
+## 조작법
+
+- **스페이스바** 재생/일시정지 · **S** 다음 정류장 · **R** 투어 다시 시작 · **F** 카메라 따라가기 · **L** 사인 표시
+- 드래그로 화면 이동, 스크롤로 확대/축소, 더블 클릭으로 공원 전체 보기
+- 건물을 클릭하면 설명이 나오고, 가이드 안의 목록에서 정류를 골라도 바로 그곳으로 이동합니다
+
+## 22개 정류장 (5막 구성)
+
+1. **1막 · 모래에서 웨이퍼로**: 모래 채굴장, 용광로, 정제탑, 단결정 인발기, 와이어 쏘, 연마기
+2. **2막 · 설계도를 그립니다**: 설계실, 마스크 작업실, 클린룸 입구
+3. **3막 · 칩을 인쇄합니다**: 층 형성로, 스핀 코터, 인쇄기, 식각실, 이온 건, 배선층, 루프 계산소
+4. **4막 · 칩이 게이트를 나갑니다**: 테스트 베이, 다이싱 쏘, 패키징, 출하 게이트
+5. **5막 · 배달되어 일을 시작합니다**: 상하차장, 데이터센터
+
+각 정류장에는 한국어 한 줄 요약(short), 본문 설명(body), 그리고 타이쿤 팁(tip)이 함께 제공됩니다.
+
+## 빌드와 배포
+
+```bash
+# vercel 첫 배포 (import + alias 동시)
+vercel --yes --prod --non-interactive --scope sigco3111s-projects --token "$VERCEL_TOKEN"
+# → https://chiptycoon-kr.vercel.app 자동 할당
+```
+
+이후 `git push origin main`만으로 자동 재배포됩니다.
+
+## 원본 attribution
 
 | | |
 |---|---|
-| **Space** | play / pause (holds a reading stop indefinitely) |
-| **S** | skip to the next stop |
-| **R** | restart the guided tour |
-| **F** | toggle camera follow |
-| **L** | toggle the signs |
-| drag | pan · scroll: zoom · double-click: show the whole park |
-| **+ − ⤢** | zoom controls on the left edge |
-| click a building | pin its explanation (click empty grass to resume following) |
+| 원본 저장소 | https://github.com/LaurentiuGabriel/ChipTycoon |
+| 원작자 | Laurentiu Gabriel ([@LaurentiuGabriel](https://github.com/LaurentiuGabriel)) |
+| 원본 라이선스 | 명시되지 않음 (저장소에 LICENSE 파일 없음). 공개 GitHub 저장소이나 라이선스 표기 부재 — 사용 전 원작자 문의 권장 |
+| 라이브 데모 (원본) | https://laurentiugabriel.github.io/ChipTycoon/ |
+| 클론 시점 | 2026-08-11 |
+| 한국어 번역 | sigco3111 ([@sigco3111](https://github.com/sigco3111)) |
+| 한국어 저작물 라이선스 | MIT |
 
-The view starts riding along with the cart, since that is where everything happens.
-Any stop in the guide's route list is clickable and the camera flies straight there.
+원본 게임 로직·그래픽·애니메이션은 모두 원작자의 것입니다. 이 저장소는 한국어화 (사용자 가시 텍스트의 한국어 교체) + Vercel 배포 환경 구성만 추가합니다.
 
-## Pacing
+## 정확도
 
-It is built to be read, not raced. The first time the cart reaches a stop it waits
-between 10 and 22 seconds, scaled to the length of that stop's explanation, and a
-bar under the panel text shows how much of the stop is left. The guided first pass
-therefore takes about **nine minutes**.
+칩 제조의 공정 순서와 각 단계가 물리적으로 무엇을 하는지는 사실에 기반합니다 — 석영 모래, 탄소 환원, 지멘스 정제, 초크랄스키 단결정 성장, 와이어 쏘잉, 연마, 박막 증착, 포토레지스트, 노광, 현상·식각, 이온 주입, 구리 다마스신 배선, 웨이퍼 프로브, 다이싱, 패키징, 최종 선별, 그리고 트럭에 실어 옮기는 단계까지 모두 사실과 부합합니다.
 
-After every stop has been explained there is nothing new to read, so the park
-switches to a watchable pace and the repeated lithography laps fast-forward, since
-they are the same road with a different mask. **Reset** (⟲) replays the slow tour.
+인용된 수치는 제품에 따라 천차만별이므로 보통의 범위로 적었습니다. 보여주기에 맞춰 축소했습니다 — 약 60바퀴 대신 4바퀴, 동시에 많이 움직이는 대신 한 장의 웨이퍼, 축구장 몇 개짜리 공장 건물 대신 1분 걸어 돌 수 있는 공원 크기로요.
 
-## The twenty two stops
+## 상태 뱃지
 
-| Act | Stops |
-|---|---|
-| 1 · Sand to wafer | Sand Pit · Furnace · Purifier · Crystal Puller · Wire Saw · Polisher |
-| 2 · Drawing the plan | Design Lab · Mask Shop · Cleanroom Gate |
-| 3 · Printing the chip | Layer Tube · Spin Coater · The Printer · Etch Bay · Ion Gun · Wire Floor · The Loop Counter |
-| 4 · Chips out the gate | Test Bay · Dicing Saw · Packaging · Shipping Gate |
-| 5 · Delivered and put to work | Loading Dock · Data Centre |
-
-Act 3 is laid out as a ring, because that is what it is. Printing a chip means
-driving the same six buildings once per layer, about sixty times for a real chip.
-The park drives four laps and then moves on, and the Loop Counter shows which
-layer you are on.
-
-## Layout
-
-```
-.github/workflows/  GitHub Pages deployment
-index.html          markup, controls, about copy
-css/styles.css      the tycoon chrome: bevels, wooden borders, gold signage
-js/iso.js           isometric projection + box / prism / cylinder / cone primitives
-js/park.js          routes, stops, lots, one painter per building, scenery
-js/tour.js          the state machine that walks the wafer through the park
-js/render.js        canvas painter's-algorithm renderer
-js/ui.js            guide panel, HUD, transport
-js/main.js          camera, input, frame loop
-```
-
-`Park.routes` holds the polylines the cart drives and `Park.stations` maps distances
-along them to stop IDs. `Tour` fires a stop when the cart reaches a station, which is
-where the cargo changes and the narration switches. The five routes run in order:
-`intake`, `loop` once per layer, `exit`, `deliver` out to the data centre, and `ret`
-back to the gate for the next wafer.
-
-## Notes for editing
-
-- **Depth sorting** is a painter's algorithm keyed on the front corner of each
-  footprint. Each building is a single drawable that paints all of its own parts in
-  the right internal order, which keeps rooftop details out of the global sort.
-- **The ground checker is clipped to the viewport.** The ground plate is deliberately
-  enormous so grass fills the screen at any zoom; drawing every tile of it would cost
-  tens of thousands of quads a frame.
-- **No em dashes** anywhere in the copy.
-
-## Credits
-
-The idea of walking a viewer through a process as a guided isometric tour is borrowed
-from a sibling project, TokenTown, which lays out a language model as a city. All
-code, art and copy here are original.
+- ✅ Live (Vercel 배포 후)
+- 📄 한국어 UI 100%
+- 🔓 MIT (한국어 저작물 한정)
+- 🤖 Claude-MiniMax-M3 + Hermes Agent로 번역 및 배포

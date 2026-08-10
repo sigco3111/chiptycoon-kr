@@ -1,0 +1,19 @@
+# AI tool caches (oh-my-opencode, aider, etc.)
+.omo/
+.aider*
+.opencode/
+
+# Vercel deploy artifacts
+.vercel/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
