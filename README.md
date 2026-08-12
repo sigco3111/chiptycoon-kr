@@ -1,7 +1,7 @@
 # 칩타이쿤 · ChipTycoon (한국어)
 
 <p align="center">
-  <a href="https://chiptycoon-kr.vercel.app"><img alt="Live Demo" src="https://img.shields.io/badge/LIVE%20DEMO-FF6B6B?style=for-the-badge&logo=vercel&logoColor=white" /></a>
+  <a href="https://sigco3111.github.io/chiptycoon-kr"><img alt="Live Demo" src="https://img.shields.io/badge/LIVE%20DEMO-FF6B6B?style=for-the-badge&logo=vercel&logoColor=white" /></a>
   <a href="https://github.com/sigco3111/chiptycoon-kr"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-sigco3111%2Fchiptycoon--kr-181717?style=for-the-badge&logo=github" /></a>
   <a href="https://laurentiugabriel.github.io/ChipTycoon/"><img alt="Original" src="https://img.shields.io/badge/Original-LaurenGabriel%2FChipTycoon-blue?style=for-the-badge" /></a>
 </p>
@@ -39,7 +39,7 @@
 
 | 채널 | URL |
 |---|---|
-| 🌐 **라이브 데모 (Vercel, 즉시 플레이)** | **<https://chiptycoon-kr.vercel.app>** |
+| 🌐 **라이브 데모 (Vercel, 즉시 플레이)** | **<https://sigco3111.github.io/chiptycoon-kr>** |
 | 💻 GitHub 저장소 | <https://github.com/sigco3111/chiptycoon-kr> |
 | 🇬🇧 원본 (영문) | <https://laurentiugabriel.github.io/ChipTycoon/> |
 
@@ -207,7 +207,7 @@ js/main.js          카메라, 입력, 프레임 루프
 
 | | |
 |---|---|
-| ✅ Live | <https://chiptycoon-kr.vercel.app> (Vercel Production, 자동배포 활성화) |
+| ✅ Live | <https://sigco3111.github.io/chiptycoon-kr> (Vercel Production, 자동배포 활성화) |
 | 📄 한국어 | UI 100% (사용자 가시 영문 잔재 0개) |
 | 🔓 License | 한국어 저작물은 MIT · 원본은 라이선스 미명시 |
 | 🤖 Build | `MiniMax-M3` + Hermes Agent로 번역 및 배포 |
@@ -243,7 +243,7 @@ js/main.js          카메라, 입력, 프레임 루프
 
 | 게임 | 라이브 | 저장소 |
 |---|---|---|
-| 🏭 칩타이쿤 (이 저장소) | <https://chiptycoon-kr.vercel.app> | <https://github.com/sigco3111/chiptycoon-kr> |
+| 🏭 칩타이쿤 (이 저장소) | <https://sigco3111.github.io/chiptycoon-kr> | <https://github.com/sigco3111/chiptycoon-kr> |
 | 🏙️ 토큰타운 | <https://token-town-kr.vercel.app> | <https://github.com/sigco3111/token-town-kr> |
 | 🏎️ 엔진웍스 | <https://engineworks-kr.vercel.app> | <https://github.com/sigco3111/engineworks-kr> |
 
@@ -257,7 +257,7 @@ js/main.js          카메라, 입력, 프레임 루프
 
 This repository is the **Korean-language independent fork** of [LaurentiuGabriel/ChipTycoon](https://github.com/LaurentiuGabriel/ChipTycoon), an isometric theme park that is really a chip factory. All user-visible English text has been replaced with Korean.
 
-- **Live demo**: <https://chiptycoon-kr.vercel.app>
+- **Live demo**: <https://sigco3111.github.io/chiptycoon-kr>
 - **Original (English)**: <https://laurentiugabriel.github.io/ChipTycoon/>
 - **What changed**: 22 buildings × 5 fields + HUD + panel + About modal — all Korean
 - **What did NOT change**: simulation math, isometric graphics, canvas renderer, animation logic — all original
